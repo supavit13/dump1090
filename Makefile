@@ -3,7 +3,7 @@
 # sure that the variable PREFIX is defined, e.g. make PREFIX=/usr/local
 #
 PROGNAME=dump1090
-BINDIR=/usr/local
+PREFIX=/usr/local
 
 ifdef PREFIX
 BINDIR=$(PREFIX)/bin
