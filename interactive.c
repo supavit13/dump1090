@@ -288,6 +288,7 @@ struct aircraft *interactiveReceiveData(struct modesMessage *mm) {
         }
     }
     a->subtype = mm->mesub;
+    a->msgtype = mm->msgtype;
     sprintf(a->raw,"%x", mm->msg);
     a->signalLevel[a->messages & 7] = mm->signalLevel;// replace the 8th oldest signal strength
     a->seen      = time(NULL);
