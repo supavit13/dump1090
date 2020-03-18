@@ -287,6 +287,8 @@ struct aircraft *interactiveReceiveData(struct modesMessage *mm) {
             Modes.aircrafts = a;
         }
     }
+    for (int j = 0; j < mm->msgbits/8; j++) printf("%02x", mm->msg[j]);
+    printf(";\n");
     a->subtype = mm->mesub;
     a->msgtype = mm->msgtype;
     sprintf(a->raw,"%x", mm->msg);
