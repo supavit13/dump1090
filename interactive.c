@@ -136,6 +136,8 @@ struct aircraft *interactiveCreateAircraft(struct modesMessage *mm) {
 
     // Now initialise things that should not be 0/NULL to their defaults
     a->addr = mm->addr;
+    a->subtype = mm->mesub;
+    for (int j = 0; j < mm->msgbits/8; j++) sprintf(a->raw,"%02x", mm->msg[j]);
     a->lat  = a->lon = 0.0;
     memset(a->signalLevel, mm->signalLevel, 8); // First time, initialise everything
                                                 // to the first signal strength
