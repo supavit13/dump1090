@@ -329,9 +329,10 @@ struct aircraft *interactiveReceiveData(struct modesMessage *mm) {
     if (mm->bFlags & MODES_ACFLAGS_SPEED_VALID) {
         
         for (int j = 0; j < mm->msgbits/8; j++){
-            printf("%02x", mm->msg[j]);printf(";\n");
+            printf("%02x", mm->msg[j]);
             sprintf(a->raw,"%02x", mm->msg[j]);
         } 
+        printf(";\n");
         // a->raw = mm->msg;
         a->subtype = mm->mesub;
         a->msgtype = mm->msgtype;
