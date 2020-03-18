@@ -328,13 +328,12 @@ struct aircraft *interactiveReceiveData(struct modesMessage *mm) {
     // If a (new) SPEED has been received, copy it to the aircraft structure
     if (mm->bFlags & MODES_ACFLAGS_SPEED_VALID) {
         
-        for (int j = 0; j < mm->msgbits/8; j++) printf("%02x", mm->msg[j]);
-        printf(";\n");
+        for (int j = 0; j < mm->msgbits/8; j++){
+            printf("%02x", mm->msg[j]);printf(";\n");
+            sprintf(a->raw,"%02x", mm->msg[j]);
+        } 
         a->subtype = mm->mesub;
         a->msgtype = mm->msgtype;
-        sprintf(a->raw,"%x", mm->msg);
-
-
         a->speed = mm->velocity;
     }
 
