@@ -227,7 +227,7 @@ struct aircraft {
 
     //Optional 
     int           subtype;
-    unsigned char raw[MODES_LONG_MSG_BYTES];
+    unsigned char raw[MODES_LONG_MSG_SIZE];
     struct aircraft *next;        // Next aircraft in our linked list
 };
 
