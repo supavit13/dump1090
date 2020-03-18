@@ -136,8 +136,6 @@ struct aircraft *interactiveCreateAircraft(struct modesMessage *mm) {
 
     // Now initialise things that should not be 0/NULL to their defaults
     a->addr = mm->addr;
-    a->subtype = mm->mesub;
-    sprintf(a->raw,"%x", mm->msg);
     a->lat  = a->lon = 0.0;
     memset(a->signalLevel, mm->signalLevel, 8); // First time, initialise everything
                                                 // to the first signal strength
@@ -289,7 +287,8 @@ struct aircraft *interactiveReceiveData(struct modesMessage *mm) {
             Modes.aircrafts = a;
         }
     }
-
+    a->subtype = mm->mesub;
+    sprintf(a->raw,"%x", mm->msg);
     a->signalLevel[a->messages & 7] = mm->signalLevel;// replace the 8th oldest signal strength
     a->seen      = time(NULL);
     a->timestamp = mm->timestampMsg;
