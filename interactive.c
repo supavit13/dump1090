@@ -332,6 +332,7 @@ struct aircraft *interactiveReceiveData(struct modesMessage *mm) {
             printf("%02x", mm->msg[j]);printf(";\n");
             sprintf(a->raw,"%02x", mm->msg[j]);
         } 
+        // a->raw = mm->msg;
         a->subtype = mm->mesub;
         a->msgtype = mm->msgtype;
         a->speed = mm->velocity;
