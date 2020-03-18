@@ -692,6 +692,8 @@ char *aircraftsToJson(int *len) {
     p += l; buflen -= l;
 
     *len = p-buf;
+    printf(buf);
+    printf("\n");
     return buf;
 }
 //
